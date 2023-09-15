@@ -6,57 +6,64 @@ import '../pages/project.dart';
 import '../pages/resume.dart';
 
 class CustomDrawer extends StatelessWidget {
-  CustomDrawer({super.key});
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: const Color.fromARGB(255, 13, 0, 33),
       child: ListView(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         children: [
           SizedBox(
               height: 200,
               child: DrawerHeader(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom:
-                              BorderSide(color: Colors.transparent, width: 0))),
                   padding: const EdgeInsets.all(0),
                   child: Image.asset(
-                    '../../assets/images/logo.jpg',
+                    'assets/images/logo.jpg',
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ))),
           Tile(
               tile: 'Home',
               onClick: () => {
+                    Navigator.pop(context),
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()))
+                        MaterialPageRoute(builder: (context) => const Home()))
                   }),
           Tile(
-              tile: 'About',
+              tile: 'Tech Stack',
               onClick: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => About()))
+                    Navigator.pop(context),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TechStack()))
                   }),
           Tile(
               tile: 'Resume',
               onClick: () => {
+                    Navigator.pop(context),
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Resume()))
+                        MaterialPageRoute(builder: (context) => const Resume()))
                   }),
           Tile(
               tile: 'Projects',
               onClick: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Project()))
+                    Navigator.pop(context),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Project()))
                   }),
           Tile(
               tile: 'Contact',
               onClick: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Contact()))
+                    Navigator.pop(context),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Contact()))
                   }),
         ],
       ),
@@ -72,12 +79,12 @@ class Tile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
       title: Text(
         tile,
-        style: TextStyle(fontSize: 28, color: Colors.white),
+        style: const TextStyle(fontSize: 28, color: Colors.white),
       ),
-      trailing: Icon(
+      trailing: const Icon(
         Icons.arrow_forward,
         color: Colors.white,
       ),

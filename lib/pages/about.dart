@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/app_bar.dart';
 import 'package:portfolio/components/drawer.dart';
+import '../components/data.dart';
 
-class About extends StatelessWidget {
-  const About({super.key});
+class TechStack extends StatelessWidget {
+  const TechStack({super.key});
 
-  static const List skills = [
-    {"image": '../../assets/images/tech-stack/html-icon.png', "name": "HTML"},
-    {"image": '../../assets/images/tech-stack/css-icon.png', "name": "CSS"},
-    {"image": '../../assets/images/tech-stack/react-icon.png', "name": "React"},
-    {
-      "image": '../../assets/images/tech-stack/js-icon.png',
-      "name": "JavaScript"
-    },
-    {"image": '../../assets/images/tech-stack/git-icon.png', "name": "Git"},
-    {
-      "image": '../../assets/images/tech-stack/github-icon.png',
-      "name": "GitHub"
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,65 +13,63 @@ class About extends StatelessWidget {
       appBar: const CustomAppBar(
         text: 'About',
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Hey there!',
-              style: TextStyle(fontSize: 30),
-            ),
-            const SizedBox(
-              height: 14,
-            ),
-            const Text(
-              "Hey there, I'm Lawmake Praveen, a tech enthusiast from Tamil Nadu, India. I'm passionate about coding and creating digital wonders. Join me on my journey as I craft amazing experiences through code.",
-              style: TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Tech Stack',
-              style: TextStyle(fontSize: 24),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: (skills.length / 4).ceil(),
-              itemBuilder: (context, index) {
-                final startIndex = index * 4;
-                final endIndex = (index + 1) * 4;
-                final skillsSubset = skills.sublist(startIndex, endIndex);
-                return GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    childAspectRatio: 1.0, // Aspect ratio of each grid item
+      body: SingleChildScrollView(
+        child: ColoredBox(
+          color: const Color.fromARGB(255, 13, 0, 33),
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Hey there!',
+                    style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: skillsSubset.length,
-                  itemBuilder: (context, i) {
-                    final skill = skillsSubset[i];
-                    return Column(
-                      children: [
-                        Image.asset(
-                          skill['image'],
-                          width: 80, // Adjust the width as needed
-                          height: 80, // Adjust the height as needed
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          skill['name'],
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-          ]),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  const Text("It's Praveen here,", style: TextStyle(fontSize: 22, color: Colors.white),),
+                  const Text(
+                    "My passion for learning has led me to learn the latest tools and languages in the IT industry. The skills I have acquired make me a perfect choice for building robust, dynamic web and mobile applications.",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    'Tech Stack',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                  const SizedBox(height: 15),
+                  Center(
+                    child: Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: skills.map((skill) {
+                        return Card(
+                          color:const Color.fromARGB(255, 18, 0, 44),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+                            child: Column(
+                              children: [
+                                Text(skill['name'], style: const TextStyle(color: Colors.white),),
+                                Image.asset(
+                                  skill['image'],
+                                  width: 80,
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  )
+          
+                ]),
+          ),
+        ),
+      ),
       drawer: const CustomDrawer(),
     );
   }

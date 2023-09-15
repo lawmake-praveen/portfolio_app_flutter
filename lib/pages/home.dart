@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(text: 'Lawmake Praveen'),
+        appBar: const CustomAppBar(text: 'Lawmake Praveen'),
         body: ColoredBox(
           color: const Color.fromARGB(255, 13, 0, 33),
           child: Padding(
@@ -17,13 +17,13 @@ class Home extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Image.asset(
-                '../../assets/images/mypic.png',
+                'assets/images/mypic.png',
                 width: 200,
               ),
               const SizedBox(height: 30),
               const Text(
                 "Hello I'm Lawmake Praveen, a tech enthusiast based in Tamil Nadu, India. My passion lies in the world of technology, where I continually seek to expand my knowledge and skills.",
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -32,11 +32,14 @@ class Home extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(vertical: 20),
                     child: ElevatedButton(
                       onPressed: () => {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const About()))
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TechStack()))
                       },
-                      
                       style: ButtonStyle(
-                        padding: MaterialStateProperty.all(const EdgeInsets.fromLTRB(20, 7, 10, 7)),
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.transparent),
                           shape: MaterialStateProperty.all(
@@ -44,20 +47,12 @@ class Home extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   side: const BorderSide(
                                       color: Colors.white, width: 1)))),
-                      child: Row(
+                      child: const  Row(
                         children: [
-                          const Text(
+                          Text(
                             'Profile',
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
-                          IconButton(
-                            onPressed: () => {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const About()))
-                            },
-                            icon: const Icon(Icons.arrow_outward),
-                            color: Colors.white,
-                            iconSize: 22,
-                          )
                         ],
                       ),
                     ),
@@ -67,6 +62,6 @@ class Home extends StatelessWidget {
             ]),
           ),
         ),
-        drawer: CustomDrawer());
+        drawer: const CustomDrawer());
   }
 }
