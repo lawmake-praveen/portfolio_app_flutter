@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/app_bar.dart';
-import 'package:portfolio/components/drawer.dart';
 import '../components/link_to_social.dart';
 
 class Contact extends StatelessWidget {
@@ -28,13 +27,13 @@ class Contact extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                linkToSocial(
+                LinkToSocial(
                     launchUrl: gitHubUrl,
                     image: 'assets/images/social-media/github-logo.png'),
-                linkToSocial(
+                LinkToSocial(
                     launchUrl: linkedinUrl,
                     image: 'assets/images/social-media/linkedin-logo.png'),
-                linkToSocial(
+                LinkToSocial(
                     launchUrl: whatsappUrl,
                     image: 'assets/images/social-media/whatsapp.png'),
               ],
@@ -42,7 +41,6 @@ class Contact extends StatelessWidget {
           ],
         ),
       ),
-      drawer: const CustomDrawer(),
     );
   }
 }

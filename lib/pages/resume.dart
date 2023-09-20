@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/app_bar.dart';
-import 'package:portfolio/components/drawer.dart';
 import '../components/data.dart';
 
 class Resume extends StatelessWidget {
@@ -108,7 +107,6 @@ class Resume extends StatelessWidget {
           ),
         ),
       )),
-      drawer: const CustomDrawer(),
     );
   }
 }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// ignore: camel_case_types
-class linkToSocial extends StatelessWidget {
-  const linkToSocial({
+class LinkToSocial extends StatelessWidget {
+  const LinkToSocial({
     super.key,
     required this.launchUrl,
     required this.image,

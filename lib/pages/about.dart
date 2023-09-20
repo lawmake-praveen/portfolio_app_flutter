@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/app_bar.dart';
-import 'package:portfolio/components/drawer.dart';
 import '../components/data.dart';
 
 class TechStack extends StatelessWidget {
@@ -11,7 +10,7 @@ class TechStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        text: 'About',
+        text: 'Tech',
       ),
       body: SingleChildScrollView(
         child: ColoredBox(
@@ -70,7 +69,6 @@ class TechStack extends StatelessWidget {
           ),
         ),
       ),
-      drawer: const CustomDrawer(),
     );
   }
 }
